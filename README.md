@@ -1,8 +1,13 @@
 # Integrate ADT and 3d Scenes with IoT Central
+
+
+https://user-images.githubusercontent.com/17155996/182733010-627941d8-e7d7-4ea8-a459-c5ecae14a379.mp4
+
+
 IoT Central as we know is a No Code aPaaS which allows users to quickly conenct IoT Devices to cloud and start realizing use cases like Condition Monitoring, Remote Operations etc. Each device that gets connected already has Twin model defined, which makes integration with ADT as the logical next step. Here I demonstrate how you can not only integrate with ADT and start sending telemetry and properties to ADT but also how you can embed the ADT 3d Scenes back in IoT Central to close the loop and provide a richer experience to your users. 
 This enables the users to walk through a plant or a mine, observe state of different assets, quickly identify assets which need attention and then drill down in a particular asset to view it in detail.
 
-diagra
+add diagram
 
 ### Step 1 - Upload the respective DTDL models into the ADT
 For the device groups/models that you would like integrate with ADT, upload their DTDL Models into the ADT. Once uploaded create a default/empty twin of the asset with a **dtid** same as the device id from IoT Central.
@@ -30,6 +35,21 @@ The Azure Function requires following Applications settings defined:
 **Please Note:** The Azure Function must have **Azure Digital Twins Data Owner** access to the ADT. You can achieve this by giving a System assigned identity to the Azure function and then adding a Role access for it on ADT.
 
 ### Step 4 - Setup 3d Models
-Now that we have Twins integrated with Device telemetry from IoT Central, next step is to create 3d Scenes and map telemetry and behaviours in the 3d models. 
+Now that we have Twins integrated with Device telemetry from IoT Central, next step is to create 3d Scenes and map telemetry and behaviours in the 3d models. You can follow the instructions [here](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-use-3d-scenes-studio). Sample models can be found in this [repository](https://github.com/malichishti/ADT-Models).
 
+### Step 5 - Create Embedder App
+In this step you create an Azure App Service using https://github.com/malichishti/adt-3d-embedder-app This would enable you to embed any specific 3d Scene using an iFrame.
+
+### Step 6 - Embed a 3d Scene inside IoT Central Dashboard
+You are now ready to embed the 3d Scene in IoT Central:
+1. [Create a new dashboard](https://docs.microsoft.com/en-us/azure/iot-central/core/howto-manage-dashboards#create-a-dashboard)
+1. In he edit view, add a **External content** Tile
+1. In the properties of the tile add a URL to your embedder app including a querystring parameter called **sceneId** e.g. `https://3d-embedder.azurewebsites.net/?sceneId=3b614761fd1187ace3bac52ebb241c54`
+<img width="937" alt="image" src="https://user-images.githubusercontent.com/17155996/182735779-926a6fed-eabf-47ef-bab1-0b8db1a6ef2f.png">
+
+Now you will be able to see the 3d scene in your dashboard.
+
+You can also setup navigation/drilldown between 3d scenes by using the Link Widget in 3d Scene Build view and passing a link to the embedder app.
+
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/17155996/182736256-f4c9ec2a-faaf-4b4a-92f9-0a4ee37becf9.png">
 
