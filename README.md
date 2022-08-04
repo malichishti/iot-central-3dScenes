@@ -16,14 +16,14 @@ For the device groups/models that you would like to integrate with ADT, upload t
 
 1. [Data Export](https://docs.microsoft.com/en-us/azure/iot-central/core/howto-export-to-event-hubs?tabs=connection-string%2Cjavascript)
 1. [Event Hub Trigger](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=in-process%2Cfunctionsv2%2Cextensionv5&pivots=programming-language-csharp)
-1. [Patch Twins Function]()
+1. [Patch Twins Function](https://github.com/malichishti/iot-central-3dScenes/blob/main/Azure%20Function%20-%20Event%20Hub%20to%20ADT/TelemetryTrigger.cs)
 1. [Embedder App](https://github.com/malichishti/adt-3d-embedder-app)
 1. [IoT Central Dashboard](https://docs.microsoft.com/en-us/azure/iot-central/core/howto-manage-dashboards#create-a-dashboard)
 
 #### Links to help:
 * [Manage models](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-manage-model)
 * [Create twins](https://docs.microsoft.com/en-us/azure/digital-twins/quickstart-azure-digital-twins-explorer#add-another-twin)
-* Models I used can be found in /DTDLs directory
+* Models I used can be found in [DTDLs](https://github.com/malichishti/iot-central-3dScenes/tree/main/DTDLs) directory
 
 ### Step 2 - Create a Data export to Event Hub
 In IoT Central create a Data Export for all your devices to an Event Hub destination as per the instructions [here](https://docs.microsoft.com/en-us/azure/iot-central/core/howto-export-to-event-hubs?tabs=connection-string%2Cjavascript). 
@@ -31,7 +31,7 @@ Configure the Data Export to export all of the Telemetry to the Even Hub.
 <img width="959" alt="image" src="https://user-images.githubusercontent.com/17155996/182542107-49a7a2d9-9cbf-4f47-a142-c40d38e7921e.png">
 
 ### Step 3 - Azure function to pass data from Event Hub to ADT
-Create an Azure Function with a trigger on Event Hub. This would be responsible to receive the telemetry from Event Hub and Patch it in ADT for the respective twin. You can find the source code for this Function at **/Azure Function - Event Hub to ADT/TelemetryTrigger.cs** You can see it finds the deviceId from the message which is used to link to the corresponding twin via dtid. Next it sends a Patch to ADT for all telemetry received.
+Create an Azure Function with a trigger on Event Hub. This would be responsible to receive the telemetry from Event Hub and Patch it in ADT for the respective twin. You can find the source code for this Function at [/Azure Function - Event Hub to ADT/TelemetryTrigger.cs](https://github.com/malichishti/iot-central-3dScenes/blob/main/Azure%20Function%20-%20Event%20Hub%20to%20ADT/TelemetryTrigger.cs) You can see it finds the deviceId from the message which is used to link to the corresponding twin via dtid. Next it sends a Patch to ADT for all telemetry received.
 
 The Azure Function requires following Applications settings defined:
 
