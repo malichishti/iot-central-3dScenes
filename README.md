@@ -9,16 +9,16 @@ This enables the users to walk through a plant or a mine, observe state of diffe
 
 ![image](https://user-images.githubusercontent.com/17155996/182738201-f8d72171-6641-4d15-acf5-e63ff811ffca.png)
 
-### Step 1 - Upload the respective DTDL models into the ADT
-For the device groups/models that you would like to integrate with ADT, upload their DTDL Models into the ADT. Once uploaded create a default/empty twin of the asset with a **dtid** same as the device id from IoT Central.
-
-<img width="960" alt="image" src="https://user-images.githubusercontent.com/17155996/182540804-7f67393d-8d4b-403a-975a-5bbdb1ca8924.png">
-
 1. [Data Export](https://docs.microsoft.com/en-us/azure/iot-central/core/howto-export-to-event-hubs?tabs=connection-string%2Cjavascript)
 1. [Event Hub Trigger](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=in-process%2Cfunctionsv2%2Cextensionv5&pivots=programming-language-csharp)
 1. [Patch Twins Function](https://github.com/malichishti/iot-central-3dScenes/blob/main/Azure%20Function%20-%20Event%20Hub%20to%20ADT/TelemetryTrigger.cs)
 1. [Embedder App](https://github.com/malichishti/adt-3d-embedder-app)
 1. [IoT Central Dashboard](https://docs.microsoft.com/en-us/azure/iot-central/core/howto-manage-dashboards#create-a-dashboard)
+
+### Step 1 - Upload the respective DTDL models into the ADT
+For the device groups/models that you would like to integrate with ADT, upload their DTDL Models into the ADT. Once uploaded create a default/empty twin of the asset with a **dtid** same as the device id from IoT Central.
+
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/17155996/182540804-7f67393d-8d4b-403a-975a-5bbdb1ca8924.png">
 
 #### Links to help:
 * [Manage models](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-manage-model)
