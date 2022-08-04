@@ -1,0 +1,66 @@
+[
+  {
+    "@id": "dtmi:com:smartfactory:chiller;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Chiller",
+    "contents": [
+      {
+        "@type": "Component",
+        "name": "identity",
+        "schema": "dtmi:com:smartfactory:assetidentity;1"
+      },      
+      {
+        "@type": "Property",
+        "name": "condenserpressure",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "evaporatorpressure",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "oilpressure",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "dischargetemperature",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "oiltemperature",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "contamination",
+        "schema": "boolean"
+      },
+      {
+        "@type": "Component",
+        "name": "chillerControlInteractions",
+        "schema": "dtmi:com:smartfactory:chiller:chillercontrolinteractions;1"
+      }
+    ]
+  },  
+  {
+    "@id": "dtmi:com:smartfactory:chiller:chillercontrolinteractions;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Chiller Control Interactions",
+    "contents": [
+      {
+        "@type": "Command",
+        "name": "rundiagnostics",
+        "request": {
+          "name": "scheduleat",
+          "schema": "dateTime"
+        }
+      }
+    ]
+  }
+]

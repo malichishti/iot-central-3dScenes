@@ -1,0 +1,84 @@
+[
+  {
+    "@id": "dtmi:com:smartfactory:pump;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Pump",
+    "contents": [
+      {
+        "@type": "Component",
+        "name": "identity",
+        "schema": "dtmi:com:smartfactory:assetidentity;1"
+      },
+      {
+        "@type": "Property",
+        "name": "motoramps",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "rpm",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "intaketemperature",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "intakepressure",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "dischargepressure",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "vibrationx",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "vibrationy",
+        "schema": "double"
+      },
+      {
+        "@type": "Property",
+        "name": "vibrationz",
+        "schema": "double"
+      },
+      {
+        "@type": "Component",
+        "name": "pumpControlInteractions",
+        "schema": "dtmi:com:smartfactory:pump:pumpcontrolinteractions;1"
+      }
+    ]
+  },
+  {
+    "@id": "dtmi:com:smartfactory:pump:pumpcontrolinteractions;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Pump Control Interactions",
+    "contents": [
+      {
+        "@type": "Command",
+        "name": "rundiagnostics",
+        "request": {
+          "name": "scheduleat",
+          "schema": "dateTime"
+        }
+      },
+      {
+        "@type": "Command",
+        "name": "requestfft",
+        "request": {
+          "name": "scheduleat",
+          "schema": "dateTime"
+        }
+      }
+    ]
+  }
+]

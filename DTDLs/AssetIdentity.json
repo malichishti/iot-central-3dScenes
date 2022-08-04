@@ -1,0 +1,37 @@
+[
+  {
+    "@id": "dtmi:com:smartfactory:assetidentity;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Asset Identity",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "name",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "serialNumber",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "latitude",
+        "schema": "double",
+        "writable":  true
+      },
+      {
+        "@type": "Property",
+        "name": "longitude",
+        "schema": "double",
+        "writable": true
+      },
+      {
+        "@type": "Property",
+        "name": "manufacturer",
+        "schema": "string"
+      }
+    ]
+  }
+]
